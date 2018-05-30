@@ -1,0 +1,29 @@
+Evan Suther
+Cruzid: esuther
+Assignment: PA4
+Component: README
+Function: ToC and short descriptions
+--------------------------------------------------------------------------------------------------
+1. List.c - Doubly linked list with front/back references and a cursor
+   implements required operations as well as optional concatList
+
+2. List.h - header file for List.c, exports the adt operations in the spec
+   also implements optional concatList
+
+3. Graph.c - implements Graph ADT specs from PA4.
+   graph can be directed or undirected, and use BFS to find a shortest path in a graph
+
+4. Graph.h - exports the required functions of the Graph adt, along with constants NIL and INF
+   and defines Graph to be a pointer to a GraphObj
+
+5. GraphTest - runs a series of tests on Graph ADT implementation
+   and prints pass/fail based on what the functions should be returning/modifying
+
+6. FindPath - takes formatted input file, builds a graph from the input,
+   determines shortest paths between vertices, if they exist specified in the input
+   using BFS, then produces a formatted output in the output file
+
+7. Makefile - Provided by Tantalo, I slightly modified it, makes FindPath executable by default.
+   can compile GraphClient or GraphTest, clean repo and run valgrind
+
+8. README - ToC and short descriptions

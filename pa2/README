@@ -1,0 +1,19 @@
+Evan Suther
+Cruzid: esuther
+Assignment: PA2
+Component: README
+Function: ToC and short descriptions
+--------------------------------------------------------------------------------------------------
+1. List.c - Doubly linked list with front/back references and a cursor
+   *implements required operations as well as optional concatList
+	
+2. List.h - header file for List.c, exports the adt operations in the spec
+	*also implements optional concatList
+	
+3. Lex.c - Takes input file and produces sorted output file uses List
+
+4. ListClient.c - Provided by Tantalo
+
+5. Makefile - Provided by Tantalo, compiles a executable Lex program
+
+6. README - ToC and short descriptions

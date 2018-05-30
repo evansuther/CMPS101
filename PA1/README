@@ -1,0 +1,18 @@
+Evan Suther
+Cruzid: esuther
+Assignment: PA1
+Component: README
+Function: ToC and short descriptions
+---------------------------------------------------------------------------------------------------
+1. List.java - Implements List ADT spec from PA1
+		the structure is a doubly linked list with a front, back, and cursor
+2. ListClient.java - Provided by Tantalo
+3. Lex.java - Takes input file and produces sorted output file uses List
+		CITATION for "String inputString = inputFile.useDelimiter("\\A").next();"
+		I found the delimiter and the regex '\\A' at  https://abhinandanmk.blogspot.com/2012/05/java-how-to-read-complete-text-file.html
+		I didn't know how to read a whole file as a single string, this blog had a few different ways but I stuck with the scanner method
+		I learned about the scanner and File I/O  in 12B with prof. Sesh. - I'm citing this because Tantalo said google how to read a file as a string
+4. Makefile - compiles and packages Lex.jar
+5. README - ToC and short descriptions
+
+

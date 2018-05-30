@@ -1,0 +1,17 @@
+Evan Suther
+Cruzid: esuther
+Assignment: PA3
+Component: README
+Function: ToC and short descriptions
+---------------------------------------------------------------------------------------------------
+1. Sparse.java - takes two command line arguments for input and output files,
+		produces formatted output to provided out file
+2. Matrix.java - Implements Matrix ADT spec from PA3
+3. List.java - Implements List ADT spec from PA3
+		the structure is a doubly linked list with a front, back, and cursor
+4. MatrixTest.java - Tests all Matrix ADT operations
+5. ListTest.java - Tests all List ADT operations with ints
+6. Makefile - compiles and packages Sparse.jar
+7. README - ToC and short descriptions
+
+
