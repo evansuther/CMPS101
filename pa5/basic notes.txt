@@ -1,0 +1,60 @@
+Function newGraph() will return a reference to a new graph object containing n vertices and no edges.
+
+freeGraph() frees all heap memory associated with a graph and sets its Graph argument to NULL. Function
+
+getOrder() returns the number of vertices in G,
+
+functions getParent(), getDiscover(), and getFinish()
+return the appropriate field values for the given vertex. Note that the parent of a vertex may be NIL. 
+
+The discover and finish times of vertices will be undefined before DFS is called. 
+
+You must #define constant
+macros for NIL and UNDEF representing those values, and place the definitions in the file Graph.h. 
+
+The descriptions of functions addEdge() and addArc() are exactly as they were in pa4. Note that as in pa4, it is
+required that adjacency lists always be processed in increasing order by vertex label. It is the responsibility
+of functions addEdge() and addArc() to maintain adjacency lists in order by inserting new vertices into the
+correct locations.
+
+Function DFS() will perform the depth first search algorithm on G. 
+The argument List S has two purposes in this function. First it defines the order in which vertices will be processed in the main loop (5-7) of DFS.
+Second, when DFS is complete, it will store the vertices in order of decreasing finish times (hence S can be
+considered to be a stack). The List S can therefore be classified as both an input and an output parameter
+to function DFS(). You should utilize the List module you created in pa2 to implement S and the adjacency
+lists representing G. DFS() has two preconditions: (i) length(S) == n, and (ii) S contains some permutation
+of the integers {1, 2, ..., n} where n = getOrder(G). You are required to check the first precondition but not
+the second.
+
+Recall DFS() calls the recursive algorithm Visit() (referred to as DFS-Visit in the text), and uses a variable
+called time that is static over all recursive calls to Visit(). Observe that this function is not mentioned in
+Graph.h and therefore is to be considered a private helper function in the Graph ADT. 
+There are at least
+three possible approaches to implementing Visit(). 
+\ You can define Visit() as a top level function in your
+graph implementation file and let time be a global variable whose scope is the entire file. This option has
+the drawback that other functions in the same file would have access to the time variable and would be
+able to alter its value. Global variables are generally considered to be a poor programming practice. 
+\ The second approach is to let time be a local variable in DFS(), then pass the address of time to Visit(), making
+it an input-output variable to Visit(). This is perhaps the simplest option, and is recommended. 
+\ The third approach is to again let time be a local variable in DFS(), then nest the definition of Visit() within the
+definition of DFS(). Since time is local to DFS(), it’s scope includes the defining block for Visit(), and is
+therefore static throughout all recursive calls to Visit(). This may be tricky if you’re not used to nesting
+function definitions since there are issues of scope to deal with. If you pick this option, first experiment
+with a few simple examples to make sure you know how it works. Note that although nesting function
+definitions is not a standard feature of C, and is not supported by many compilers, it is supported by the gcc
+compiler (even with the –std=c99 flag for some reason). If you plan to develop your project on a platform
+other than the UCSC ITS Unix timeshare, this approach might not be possible.
+
+
+Function transpose() returns a reference to a new graph object representing the transpose of G, 
+
+copyGraph() returns a reference to a new graph which is a copy of G. 
+
+Both transpose() and copyGraph() could be considered constructors since they create new graph objects. 
+
+Function printGraph() prints the adjacency list representation of G to the file pointed to by out. 
+
+Obviously there is much in common between the graph module in this project and the one in pa4. If you wish, you may simply add functionality necessary
+for this project to the previous module, although it is not required that you do so. You should make note of
+choices such as this in your README file.
