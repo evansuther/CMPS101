@@ -26,8 +26,9 @@ void sortedInsert(List L, int v);
 typedef struct GraphObj {
    List* Adj;
    int* color;
-   int* dist;
-   int* parent;
+	int* parent;
+   int* d;
+   int* f;
    int order, size;
 } GraphObj;
 
@@ -144,6 +145,7 @@ int getDiscover(Graph G, int u) {
 	}
    return (G->d[u]);
 } 
+
 // getFinish()
 // returns the finish time of vertex u,
 // or UNDEF if DFS() has not yet been called
@@ -210,7 +212,8 @@ void addEdge(Graph G, int u, int v) {
 } 
 
 // DFS()
-void DFS(Graph G, List S); /* Pre: length(S)==getOrder(G) */
+/* Pre: length(S)==getOrder(G) */
+void DFS(Graph G, List S); 
 
 /* end Manipulation procedures */
 
@@ -220,12 +223,13 @@ void DFS(Graph G, List S); /* Pre: length(S)==getOrder(G) */
 Graph transpose(Graph G) {
 	Graph T = newGraph(getOrder(G));
 	for (int i = 1; i <= getOrder(G); i++) {
-		moveFront((*List) G->Adj[i]);
-		while (index((*List) G->Adj[i]) >= 0) {
-			sortedInsert(get((*List) G->Adj[i]), (i);
-			moveNext((*List) G->Adj[i]);
+		moveFront(G->Adj[i]);
+		while (index(G->Adj[i]) >= 0) {
+			sortedInsert(G->Adj[get(G->Adj[i])] , i);
+			moveNext(G->Adj[i]);
 		}
 	}
+	T->size = G->size;
 	return T;
 }
 
@@ -236,7 +240,9 @@ Graph copyGraph(Graph G) {
 		if (length(G->Adj[i]) != 0) {
 			cpy->Adj[i] = copyList(G->Adj[i]);
 		}
-	} 
+	}
+	cpy->size = G->size;
+	return cpy;
 }
 
 // printGraph()

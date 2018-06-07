@@ -12,6 +12,7 @@
 /* Spec-required exported constants */
 #define NIL -99
 #define UNDEF -100
+typedef struct GraphObj* Graph;
 /* Constructors-Destructors */
 Graph newGraph(int n);
 void freeGraph(Graph* pG);
