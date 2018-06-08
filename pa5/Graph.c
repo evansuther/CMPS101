@@ -19,6 +19,7 @@
 /* Private Function Declarations */
 
 void sortedInsert(List L, int v);
+void visit(Graph G, List S, int x, int* time);
 
 /* end Private Declarations */
 
@@ -213,7 +214,23 @@ void addEdge(Graph G, int u, int v) {
 
 // DFS()
 /* Pre: length(S)==getOrder(G) */
-void DFS(Graph G, List S); 
+void DFS(Graph G, List S) {
+	for (int i = 1; i <= getOrder(G); i++) {
+		G->color[i] = white;
+		G->parent[i] = NIL;
+	}
+	int time = 0;
+	moveBack(S);
+	int v;
+	while (index(S) >= 0) {
+		v = front(S);
+		if (G->color[v] == white){
+			visit(G, S, v, &time);
+		}
+		deleteFront(S);
+	}
+	return;
+} 
 
 /* end Manipulation procedures */
 
@@ -222,10 +239,12 @@ void DFS(Graph G, List S);
 // transpose()
 Graph transpose(Graph G) {
 	Graph T = newGraph(getOrder(G));
+	int v;
 	for (int i = 1; i <= getOrder(G); i++) {
 		moveFront(G->Adj[i]);
 		while (index(G->Adj[i]) >= 0) {
-			sortedInsert(G->Adj[get(G->Adj[i])] , i);
+			v = get(G->Adj[i]);
+			sortedInsert(T->Adj[v] , i);
 			moveNext(G->Adj[i]);
 		}
 	}
@@ -284,8 +303,24 @@ void sortedInsert(List L, int v) {
 		}
 		moveNext(L);
 	}
-	if (!placed){
-		append(L, v);
-	}
+	if (!placed) append(L, v);
 	return;
+}
+
+// private function visit()
+void visit(Graph G, List S, int x, int* time) {
+	int u;
+	G->color[x] = gray;
+	G->d[x] = ++(*time);
+	for (moveFront(G->Adj[x]); index(G->Adj[x]) >= 0; moveNext(G->Adj[x])) {
+		u = get(G->Adj[x]);
+		if (G->color[u] == white) {
+			G->parent[u] = x;
+			visit(G, S, u, time);
+		}
+	}
+	G->color[x] = black;
+	G->f[x] = ++(*time);
+	fprintf(stdout, "current Time & vertex: %d & %d\n", *time, x);
+	insertAfter(S, x);
 }

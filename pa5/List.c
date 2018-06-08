@@ -109,11 +109,11 @@ int index(List L) {
 // Returns front element. Pre: length()>0
 int front(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: front(L) called on NULL list reference");
+      fprintf(stderr, "List Error: front(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: front(L) called on empty list");
+      fprintf(stderr, "List Error: front(L) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    return (L->front->data);
@@ -123,11 +123,11 @@ int front(List L) {
 // Returns back element. Pre: length()>0
 int back(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: back(L) called on NULL list reference");
+      fprintf(stderr, "List Error: back(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: back(L) called on empty list");
+      fprintf(stderr, "List Error: back(L) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    return (L->back->data);
@@ -137,15 +137,15 @@ int back(List L) {
 // Returns cursor element. Pre: length()>0, index()>=0
 int get(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: get(L) called on NULL list reference");
+      fprintf(stderr, "List Error: get(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: get(L) called on empty list");
+      fprintf(stderr, "List Error: get(L) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->iCursor >= 0)) {
-      fprintf(stderr, "List Error: get(L) called on undefined cursor");
+      fprintf(stderr, "List Error: get(L) called on undefined cursor\n");
       exit(EXIT_FAILURE);
    }
    return (L->cursor->data);
@@ -157,7 +157,7 @@ int get(List L) {
 // are not used in determining equality.
 int equals(List A, List B) {
    if (A == NULL || B == NULL) {
-      fprintf(stderr, "List Error: equals(L) called on NULL list reference(s)");
+      fprintf(stderr, "List Error: equals(L) called on NULL list reference(s)\n");
       exit(EXIT_FAILURE);
    }
    int eq = 0;
@@ -260,7 +260,7 @@ void moveNext(List L) {
 // insertion takes place before front element.
 void prepend(List L, int data) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: prepend(L, data) called on NULL list reference");
+      fprintf(stderr, "List Error: prepend(L, data) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    Node N = newNode(data);
@@ -288,7 +288,7 @@ void prepend(List L, int data) {
 // insertion takes place after back element.
 void append(List L, int data) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: append(L, data) called on NULL list reference");
+      fprintf(stderr, "List Error: append(L, data) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    Node N = newNode(data);
@@ -312,15 +312,15 @@ void append(List L, int data) {
 // Pre: length()>0, index()>=0
 void insertBefore(List L, int data) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: insertBefore(L, data) called on NULL list reference");
+      fprintf(stderr, "List Error: insertBefore(L, data) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: insertBefore(L, data) called on empty list");
+      fprintf(stderr, "List Error: insertBefore(L, data) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->iCursor >= 0)) {
-      fprintf(stderr, "List Error: insertBefore(L, data) called on undefined cursor");
+      fprintf(stderr, "List Error: insertBefore(L, data) called on undefined cursor\n");
       exit(EXIT_FAILURE);
    }
    // if cursor is the front, let prepend handle
@@ -345,15 +345,15 @@ void insertBefore(List L, int data) {
 // Pre: length()>0, index()>=0
 void insertAfter(List L, int data) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: insertAfter(L, data) called on NULL list reference");
+      fprintf(stderr, "List Error: insertAfter(L, data) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: insertAfter(L, data) called on empty list");
+      fprintf(stderr, "List Error: insertAfter(L, data) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->iCursor >= 0)) {
-      fprintf(stderr, "List Error: insertAfter(L, data) called on undefined cursor");
+      fprintf(stderr, "List Error: insertAfter(L, data) called on undefined cursor\n");
       exit(EXIT_FAILURE);
    }
    // if the cursor is at the end, append can handle it
@@ -376,11 +376,11 @@ void insertAfter(List L, int data) {
 // Deletes the front element. Pre: length()>0
 void deleteFront(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: deleteFront(L) called on NULL list reference");
+      fprintf(stderr, "List Error: deleteFront(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: deleteFront(L) called on empty list");
+      fprintf(stderr, "List Error: deleteFront(L) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    Node N = NULL;
@@ -410,11 +410,11 @@ void deleteFront(List L) {
 // Deletes the back element. Pre: length()>0
 void deleteBack(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: deleteBack(L) called on NULL list reference");
+      fprintf(stderr, "List Error: deleteBack(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: deleteBack(L) called on empty list");
+      fprintf(stderr, "List Error: deleteBack(L) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    Node N = NULL;
@@ -441,15 +441,15 @@ void deleteBack(List L) {
 // Pre: length()>0, index()>=0
 void delete(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: delete(L) called on NULL list reference");
+      fprintf(stderr, "List Error: delete(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->length > 0)) {
-      fprintf(stderr, "List Error: delete(L) called on empty list");
+      fprintf(stderr, "List Error: delete(L) called on empty list\n");
       exit(EXIT_FAILURE);
    }
    if (!(L->iCursor >= 0)) {
-      fprintf(stderr, "List Error: delete(L) called on undefined cursor");
+      fprintf(stderr, "List Error: delete(L) called on undefined cursor\n");
       exit(EXIT_FAILURE);
    }
    // let other functions handle the special cases
@@ -479,11 +479,11 @@ void delete(List L) {
 // separated sequence of integers, with front on left.
 void printList(FILE* out, List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: printList(out, L) called on NULL list reference");
+      fprintf(stderr, "List Error: printList(out, L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    if (out == NULL) {
-      fprintf(stderr, "List Error: printList(out, L) called on NULL file reference");
+      fprintf(stderr, "List Error: printList(out, L) called on NULL file reference\n");
       exit(EXIT_FAILURE);
    }
    // use dummy node to loop through the list and print the data in the nodes
@@ -501,7 +501,7 @@ void printList(FILE* out, List L) {
 // state of the cursor in this List. This List is unchanged.
 List copyList(List L) {
    if (L == NULL) {
-      fprintf(stderr, "List Error: copy(L) called on NULL list reference");
+      fprintf(stderr, "List Error: copy(L) called on NULL list reference\n");
       exit(EXIT_FAILURE);
    }
    Node temp = L->front;
@@ -522,7 +522,7 @@ List copyList(List L) {
 // unchanged.
 List concatList(List A, List B) {
    if (A == NULL || B == NULL) {
-      fprintf(stderr, "List Error: concatList(L) called on NULL list reference(s)");
+      fprintf(stderr, "List Error: concatList(L) called on NULL list reference(s)\n");
       exit(EXIT_FAILURE);
    }
    List both = copyList(A);
