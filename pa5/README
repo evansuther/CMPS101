@@ -1,0 +1,33 @@
+Evan Suther
+Cruzid: esuther
+Assignment: PA5
+Component: README
+Function: ToC and short descriptions
+--------------------------------------------------------------------------------------------------
+1. README - ToC and short descriptions
+
+2. Makefile - Provided by Tantalo, I slightly modified it, makes FindComponents executable by default.
+ * can also compile GraphClient or GraphTest, clean repo and run valgrind
+ 
+3. FindComponents.c - takes formatted input file, builds a digraph from the input,
+ * prints the adjacency list representation to the output file, determines
+ * the strongly connected components of the graph and prints them to the output file
+ 
+4. Graph.h - exports the required functions of the Graph adt, along with constants NIL and UNDEF
+ * and defines Graph to be a pointer to a GraphObj
+
+5. Graph.c - stores a Graph in Adj list representation,
+ * has vertex attributes for DFS for PA5 spec
+ * adapted from previous Graph ADT build for BFS, mostly overhauled
+ 
+6. List.h - header file for List.c, exports the adt operations in the spec
+ * also implements optional concatList
+ 
+7. List.c - Doubly linked list with front/back references and a cursor
+ * implements required operations as well as optional concatList
+
+8. GraphTest.c - runs a series of tests on Graph ADT implementation
+ * and prints pass/fail based on what the functions should be returning/modifying
+
+
+
